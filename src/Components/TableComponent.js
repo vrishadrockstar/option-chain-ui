@@ -3,6 +3,7 @@ import TableToExcel from "@stanlystark/table-to-excel";
 import convertTZ from ".././ConvertTimeZone";
 
 const arrTypes = ["NIFTY", "BANKNIFTY", "FINNIFTY"];
+const fetchUrl = "https://option-chain-app.glitch.me";
 
 class TableComponent extends React.Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class TableComponent extends React.Component {
     type ??= "";
     symbol ??= "";
     fetch(
-      "https://option-chain-app.glitch.me/api/data?date=" +
+      fetchUrl + "/api/data?date=" +
         date +
         "&order=" +
         order +
@@ -55,7 +56,7 @@ class TableComponent extends React.Component {
         });
       })
       .then(() => {
-        fetch("/api/data/master")
+        fetch(fetchUrl + "/api/data/master")
           .then((masterData) => {
             return masterData.json();
           })

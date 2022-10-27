@@ -1,5 +1,5 @@
 import React from "react";
-// import TableToExcel from "@stanlystark/table-to-excel";
+import TableToExcel from "@stanlystark/table-to-excel";
 import convertTZ from ".././ConvertTimeZone";
 
 const arrTypes = ["NIFTY", "BANKNIFTY", "FINNIFTY"];
@@ -100,11 +100,11 @@ class TableComponent extends React.Component {
 
   downloadExcel(event) {
     let table = document.querySelector("#option_chain_table");
-    // TableToExcel.convert(table, {
-    //   name: `${this.state.selectedType || this.state.selectedSymbol} | ${
-    //     this.state.selectedDate
-    //   } | ${convertTZ(new Date(), "Asia/Kolkata")}.xlsx`,
-    // });
+    TableToExcel.convert(table, {
+      name: `${this.state.selectedType || this.state.selectedSymbol} | ${
+        this.state.selectedDate
+      } | ${convertTZ(new Date(), "Asia/Kolkata")}.xlsx`,
+    });
   }
 
   render() {
